@@ -17,6 +17,7 @@ public class UserAggregate : AggregateRoot
     public BirthDate BirthDate { get; set; }
 
     public UserAggregate(long userId, string firstName, string? lastName, string? username, string? bio, string? languageCode, string? profileImageObjectName, bool hasPrivateForwards, bool isBot, bool isPremium, BirthDate birthDate)
+        : base(Guid.NewGuid())
     {
         UserId = userId;
         FirstName = firstName;

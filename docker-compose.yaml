@@ -1,6 +1,7 @@
 services:
   lexi-postgres:
     image: postgres:latest
+    container_name: lexi-postgres
     restart: always
     environment:
       POSTGRES_USER: "${POSTGRES_USER}"
@@ -14,6 +15,7 @@ services:
   lexi:
     build:
       context: ./src/LexiService/
+    container_name: lexi
     command: dotnet run --urls "https://0.0.0.0:8042;http://0.0.0.0:8043"
     ports:
       - "8042:8080"

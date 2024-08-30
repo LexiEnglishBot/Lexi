@@ -2,9 +2,9 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
-namespace ApplicationService.Services.ServiceHelpers;
+namespace ApplicationService.Services;
 
-public static class UpdateHelpers
+public partial class TelegramService
 {
     public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
     {

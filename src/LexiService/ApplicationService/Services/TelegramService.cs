@@ -1,5 +1,4 @@
-﻿using ApplicationService.Services.ServiceHelpers;
-using Core.Exceptions;
+﻿using Core.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
@@ -7,7 +6,7 @@ using Telegram.Bot.Polling;
 
 namespace ApplicationService.Services;
 
-public class TelegramService : BackgroundService
+public partial class TelegramService : BackgroundService
 {
     private readonly TelegramBotClient _bot;
 
@@ -27,8 +26,8 @@ public class TelegramService : BackgroundService
         };
 
         _bot.StartReceiving(
-            updateHandler: UpdateHelpers.HandleUpdateAsync,
-            pollingErrorHandler: ErrorHelpers.HandlePollingErrorAsync,
+            updateHandler: HandleUpdateAsync,
+            pollingErrorHandler: HandlePollingErrorAsync,
             receiverOptions: receiverOptions,
             cancellationToken: cancellationToken
         );

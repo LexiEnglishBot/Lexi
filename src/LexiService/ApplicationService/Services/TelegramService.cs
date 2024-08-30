@@ -1,7 +1,9 @@
-﻿using Core.Exceptions;
+﻿using ApplicationService.Services.ServiceHelpers;
+using Core.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
+using Telegram.Bot.Polling;
 
 namespace ApplicationService.Services;
 
@@ -19,7 +21,16 @@ public class TelegramService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {
-        var me = await _bot.GetMeAsync(cancellationToken);
-        Console.WriteLine($"Hello, World! I am user {me.Id} and my name is {me.FirstName}.");
+        var receiverOptions = new ReceiverOptions
+        {
+            AllowedUpdates = [] // receive all update types
+        };
+
+        _bot.StartReceiving(
+            updateHandler: UpdateHelpers.HandleUpdateAsync,
+            pollingErrorHandler: ErrorHelpers.HandlePollingErrorAsync,
+            receiverOptions: receiverOptions,
+            cancellationToken: cancellationToken
+        );
     }
 }

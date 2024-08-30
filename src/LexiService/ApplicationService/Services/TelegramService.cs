@@ -13,7 +13,9 @@ public partial class TelegramService : BackgroundService
     public TelegramService(IConfiguration configuration)
     {
         var apiKey = configuration.GetSection("API_KEY").Value!;
-        if (string.IsNullOrWhiteSpace(apiKey)) throw new AppException("Invalid API_KEY!");
+
+        if (string.IsNullOrWhiteSpace(apiKey)) 
+            throw new AppException("Invalid API_KEY!");
 
         _bot = new TelegramBotClient(apiKey);
     }

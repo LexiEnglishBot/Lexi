@@ -1,0 +1,6 @@
+@SrtDataCollector_HostAddress = http://localhost:5159
+
+GET {{SrtDataCollector_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

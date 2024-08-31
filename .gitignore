@@ -371,3 +371,6 @@ FodyWeavers.xsd
 
 # DotSettings
 **/*.DotSettings
+
+# Database Migrations
+**/Migrations

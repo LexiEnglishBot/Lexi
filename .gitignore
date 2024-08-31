@@ -365,3 +365,9 @@ FodyWeavers.xsd
 # Environment files
 **/.env
 **/.env.development
+
+# Appsettings
+**/appsettings*.json
+
+# DotSettings
+**/*.DotSettings

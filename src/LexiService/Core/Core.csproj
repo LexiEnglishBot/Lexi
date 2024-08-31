@@ -6,4 +6,63 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.16.0" />
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="MediatR" Version="12.4.0" />
+    <PackageReference Include="Telegram.Bot" Version="19.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Exceptions\ExceptionMessages.Designer.cs">
+      <DependentUpon>ExceptionMessages.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\Keyboards\KeyboardData.Designer.cs">
+      <DependentUpon>KeyboardData.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\Keyboards\KeyboardContents.Designer.cs">
+      <DependentUpon>KeyboardContents.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\Logging\LogMessages.Designer.cs">
+      <DependentUpon>LogMessages.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\Messages\MessageContents.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageContents.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Exceptions\ExceptionMessages.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Keyboards\KeyboardData.resx">
+      <LastGenOutput>KeyboardData.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Keyboards\KeyboardContents.resx">
+      <LastGenOutput>KeyboardContents.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Logging\LogMessages.resx">
+      <LastGenOutput>LogMessages.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Messages\MessageContents.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageContents.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

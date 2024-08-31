@@ -1,4 +1,5 @@
 using Bootstrapper;
+using Bootstrapper.DomainServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +10,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Services
-builder.Services.RegisterTelegramServices();
+// App Services
+builder.Services.RegisterTelegramServices()
+                .RegisterMediator();
+
+// Domain Services
+builder.Services.RegisterValidators()
+                .RegisterBotManager();
+
+builder.Services.AddApiVersioning();
 
 var app = builder.Build();
 

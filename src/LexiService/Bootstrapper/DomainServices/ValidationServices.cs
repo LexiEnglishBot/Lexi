@@ -12,9 +12,4 @@ public static class ValidationServices
     {
         return services.AddSingleton<IValidator<BotAggregate>, BotValidator>();
     }
-
-    public static IServiceCollection RegisterBotManager(this IServiceCollection services)
-    {
-        return services.AddSingleton<IBotAggregateManager, BotAggregateManager>();
-    }
 }

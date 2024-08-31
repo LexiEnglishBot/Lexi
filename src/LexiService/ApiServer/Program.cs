@@ -1,10 +1,12 @@
 using Bootstrapper;
+using Bootstrapper.ApplicationServices;
 using Bootstrapper.DomainServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddApiVersioning();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -15,10 +17,11 @@ builder.Services.RegisterTelegramServices()
                 .RegisterMediator();
 
 // Domain Services
-builder.Services.RegisterValidators()
-                .RegisterBotManager();
+builder.Services.RegisterValidators();
 
-builder.Services.AddApiVersioning();
+// Application Services
+builder.Services.RegisterBotManager();
+
 
 var app = builder.Build();
 

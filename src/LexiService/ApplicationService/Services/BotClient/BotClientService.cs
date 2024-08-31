@@ -1,5 +1,7 @@
 ﻿using Core.Resources.Logging;
+using DataAccess.User;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot;
@@ -10,12 +12,16 @@ namespace ApplicationService.Services.BotClient;
 public partial class BotClientService : BackgroundService
 {
     private readonly ITelegramBotClient _botClient;
+    private readonly IServiceScope _serviceScope;
     private readonly ILogger<BotClientService> _logger;
     private readonly Dictionary<string, string> _botConfigs;
+    private readonly IUserRepository _userRepository;
 
-    public BotClientService(IConfiguration configuration, ILogger<BotClientService> logger)
+    public BotClientService(IConfiguration configuration, ILogger<BotClientService> logger, IServiceScopeFactory serviceScopeFactory)
     {
         _logger = logger;
+        _serviceScope = serviceScopeFactory.CreateScope();
+        _userRepository = ((IUserRepository?)_serviceScope.ServiceProvider.GetService(typeof(IUserRepository)))!;
 
         _botClient = new TelegramBotClient(configuration.GetSection("API_KEY").Value!);
 

@@ -1,6 +1,4 @@
-﻿using Domain.User.ValueObjects;
-
-namespace Domain.User.Aggregate;
+﻿namespace Domain.User.Aggregate;
 
 public class UserAggregate : AggregateRoot
 {
@@ -14,10 +12,8 @@ public class UserAggregate : AggregateRoot
     public bool HasPrivateForwards { get; set; }
     public bool IsBot { get; set; }
     public bool IsPremium { get; set; }
-    public BirthDate BirthDate { get; set; }
 
-    public UserAggregate(long userId, string firstName, string? lastName, string? username, string? bio, string? languageCode, string? profileImageObjectName, bool hasPrivateForwards, bool isBot, bool isPremium, int birthDateDay, int birthDateMonth, int birthDateYear)
-        : base(Guid.NewGuid())
+    public UserAggregate(long userId, string firstName, string? lastName, string? username, string? bio, string? languageCode, string? profileImageObjectName, bool hasPrivateForwards, bool isBot, bool isPremium) : base(Guid.NewGuid())
     {
         UserId = userId;
         FirstName = firstName;
@@ -29,6 +25,5 @@ public class UserAggregate : AggregateRoot
         HasPrivateForwards = hasPrivateForwards;
         IsBot = isBot;
         IsPremium = isPremium;
-        BirthDate = new BirthDate(birthDateDay, birthDateMonth, birthDateYear);
     }
 }

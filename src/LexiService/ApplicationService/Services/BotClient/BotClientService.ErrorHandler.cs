@@ -9,7 +9,7 @@ using Telegram.Bot.Types;
 
 namespace ApplicationService.Services.BotClient;
 
-public partial class BotClientService : BackgroundService
+public partial class BotClientService
 {
     public Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
     {

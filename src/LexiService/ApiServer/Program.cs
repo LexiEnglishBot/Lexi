@@ -5,17 +5,21 @@ using Serilog;
 
 Log.Information(LogMessages.START_WEB_HOST);
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 builder.Host.ConfigureSerilog();
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddApiVersioning();
-
+builder.Services.AddApiVersioning();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.RegisterTelegramServices();
+builder.Services.RegisterTelegramServices()
+                .RegisterRepositories();
+
+builder.Services.RegisterDbContextServices(configuration);
 
 var app = builder.Build();
 

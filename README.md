@@ -1,2 +1,2 @@
 # Lexi
-![lexi](./assets/logo/lexi.jpg)
+<img src="./assets/logo/lexi.jpg" alt="lexi" width="200"/>

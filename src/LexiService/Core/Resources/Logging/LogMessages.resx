@@ -121,6 +121,9 @@
     <value>START_BOT_SERVICE</value>
   </data>
   <data name="MESSAGE_RECEIEVED" xml:space="preserve">
-	  <value>Received a '{0}' message in chat {1}.</value>
+    <value>Received a '{0}' message in chat {1}.</value>
+  </data>
+  <data name="START_WEB_HOST" xml:space="preserve">
+    <value>Creating the lexi web application host</value>
   </data>
 </root>

@@ -77,5 +77,14 @@ namespace Core.Resources.Logging {
                 return ResourceManager.GetString("START_BOT_SERVICE", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating the lexi web application host.
+        /// </summary>
+        public static string START_WEB_HOST {
+            get {
+                return ResourceManager.GetString("START_WEB_HOST", resourceCulture);
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Resources;
 using Telegram.Bot.Types.ReplyMarkups;
 
-namespace Core.Resources.Keyboards;
+namespace Core.Resources.ReplyMarkup;
 
 public class ReplyMarkups
 {
@@ -12,12 +12,12 @@ public class ReplyMarkups
         ReplyMarkupsDictionary = new Dictionary<string, IReplyMarkup>()
         {
             {
-                nameof(KeyboardContents.BACK_KEY)
-                , new ReplyKeyboardMarkup(new KeyboardButton(KeyboardContents.BACK_KEY))
+                nameof(ReplyMarkupContents.BACK_KEY)
+                , new ReplyKeyboardMarkup(new KeyboardButton(ReplyMarkupContents.BACK_KEY))
             },
             {
-                nameof(KeyboardContents.USER_IS_NOT_IN_CHANNEL)
-                , new ReplyKeyboardMarkup(new KeyboardButton(KeyboardContents.USER_IS_NOT_IN_CHANNEL))
+                nameof(ReplyMarkupContents.USER_IS_NOT_IN_CHANNEL)
+                , new ReplyKeyboardMarkup(new KeyboardButton(ReplyMarkupContents.USER_IS_NOT_IN_CHANNEL))
             },
         };
     }

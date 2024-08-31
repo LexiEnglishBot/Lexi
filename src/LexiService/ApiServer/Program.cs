@@ -1,41 +1,31 @@
 using Bootstrapper;
-using Bootstrapper.ApplicationServices;
-using Bootstrapper.DomainServices;
+using Bootstrapper.ExternalServices;
+using Core.Resources.Logging;
+using Serilog;
 
+Log.Information(LogMessages.START_WEB_HOST);
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.ConfigureSerilog();
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddApiVersioning();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// App Services
-builder.Services.RegisterTelegramServices()
-                .RegisterMediator();
-
-// Domain Services
-builder.Services.RegisterValidators();
-
-// Application Services
-builder.Services.RegisterBotManager();
-
+builder.Services.RegisterTelegramServices();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.MapControllers();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();

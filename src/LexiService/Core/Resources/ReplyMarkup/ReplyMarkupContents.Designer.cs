@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Core.Resources.Keyboards {
+namespace Core.Resources.ReplyMarkup {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Core.Resources.Keyboards {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class KeyboardData {
+    public class ReplyMarkupContents {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal KeyboardData() {
+        internal ReplyMarkupContents() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Core.Resources.Keyboards {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Core.Resources.Keyboards.KeyboardData", typeof(KeyboardData).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Core.Resources.ReplyMarkup.ReplyMarkupContents", typeof(ReplyMarkupContents).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,20 @@ namespace Core.Resources.Keyboards {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TEST.
+        ///   Looks up a localized string similar to BACK_KEY.
         /// </summary>
-        public static string TEST {
+        public static string BACK_KEY {
             get {
-                return ResourceManager.GetString("TEST", resourceCulture);
+                return ResourceManager.GetString("BACK_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USER_IS_NOT_IN_CHANNEL.
+        /// </summary>
+        public static string USER_IS_NOT_IN_CHANNEL {
+            get {
+                return ResourceManager.GetString("USER_IS_NOT_IN_CHANNEL", resourceCulture);
             }
         }
     }

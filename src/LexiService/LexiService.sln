@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiServer", "ApiServer\ApiServer.csproj", "{CB08BFC9-2CC1-4140-8EF8-610934CE745F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiServer", "ApiServer\ApiServer.csproj", "{CB08BFC9-2CC1-4140-8EF8-610934CE745F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{84497E84-913A-49AB-AB85-5B1206068A11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{84497E84-913A-49AB-AB85-5B1206068A11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationService", "ApplicationService\ApplicationService.csproj", "{85A7C59D-9212-4FAA-BC54-4D25047BFB6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationService", "ApplicationService\ApplicationService.csproj", "{85A7C59D-9212-4FAA-BC54-4D25047BFB6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{30369A5B-67A2-4D8A-907F-A19B51951026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{30369A5B-67A2-4D8A-907F-A19B51951026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM", "ORM\ORM.csproj", "{38FE20CF-6A10-40B5-8332-C21A97C71897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORM", "ORM\ORM.csproj", "{38FE20CF-6A10-40B5-8332-C21A97C71897}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{DCEAAC9A-BC88-433E-9156-06EBEE25F770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{DCEAAC9A-BC88-433E-9156-06EBEE25F770}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{9238051F-E6F9-4FA3-845A-D22A60B91934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{9238051F-E6F9-4FA3-845A-D22A60B91934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

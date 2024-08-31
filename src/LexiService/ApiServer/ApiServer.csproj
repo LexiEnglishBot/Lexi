@@ -4,10 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>5531a233-b2ef-44e0-b89e-d55ca370e728</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <ProjectReference Include="..\Bootstrapper\Bootstrapper.csproj" />
   </ItemGroup>
 
 </Project>

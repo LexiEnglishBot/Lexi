@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service AiPromptService {
+  
+  rpc Ask (AiPromptRequest) returns (AiPromptResponse) {}
+}
+
+message AiPromptRequest {
+  string prompt = 1;
+}
+
+message AiPromptResponse {
+  string answer = 1;
+}

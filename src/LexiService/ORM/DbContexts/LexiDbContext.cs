@@ -1,11 +1,11 @@
-﻿using Domain.User.Aggregate;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ORM.DbEntities;
 
 namespace ORM.DbContexts;
 
 public sealed class LexiDbContext : DbContext
 {
-    public DbSet<UserAggregate> Users { get; set; }
+    public DbSet<UserDbEntity> Users { get; set; }
 
     public LexiDbContext(DbContextOptions<LexiDbContext> options) : base(options)
     {

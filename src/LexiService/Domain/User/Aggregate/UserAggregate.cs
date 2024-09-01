@@ -6,24 +6,26 @@ public class UserAggregate : AggregateRoot
     public string FirstName { get; set; }
     public string? LastName { get; set; }
     public string? Username { get; set; }
-    public string? Bio { get; set; }
     public string? LanguageCode { get; set; }
-    public string? ProfileImageObjectName { get; set; }
-    public bool HasPrivateForwards { get; set; }
-    public bool IsBot { get; set; }
-    public bool IsPremium { get; set; }
+    public bool IsNewUser { get; set; } = true;
 
-    public UserAggregate(long userId, string firstName, string? lastName, string? username, string? bio, string? languageCode, string? profileImageObjectName, bool hasPrivateForwards, bool isBot, bool isPremium) : base(Guid.NewGuid())
+    public UserAggregate(Guid id, long userId, string firstName, string? lastName, string? username, string? languageCode, bool isNewUser) : base(Guid.NewGuid())
+    {
+        Id = id;
+        UserId = userId;
+        FirstName = firstName;
+        LastName = lastName;
+        Username = username;
+        LanguageCode = languageCode;
+        IsNewUser = isNewUser;
+    }
+
+    public UserAggregate(long userId, string firstName, string? lastName, string? username, string? languageCode) : base(Guid.NewGuid())
     {
         UserId = userId;
         FirstName = firstName;
         LastName = lastName;
         Username = username;
-        Bio = bio;
         LanguageCode = languageCode;
-        ProfileImageObjectName = profileImageObjectName;
-        HasPrivateForwards = hasPrivateForwards;
-        IsBot = isBot;
-        IsPremium = isPremium;
     }
 }

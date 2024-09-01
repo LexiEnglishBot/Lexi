@@ -76,13 +76,13 @@ namespace Core.Resources.Messages {
         /// <summary>
         ///   Looks up a localized string similar to Hi there! 👋 I&apos;m Lexi, your friendly English learning assistant. I&apos;m here to help you improve your English skills. Just send me a message and we can get started.
         ///
-        ///Need help with:
-        ///
+        ///If you need help with:
         ///Grammar
         ///Vocabulary
         ///Pronunciation
         ///Writing
         ///Speaking practice
+        ///
         ///Let&apos;s make learning English fun and easy together! 📚.
         /// </summary>
         public static string WELCOME {

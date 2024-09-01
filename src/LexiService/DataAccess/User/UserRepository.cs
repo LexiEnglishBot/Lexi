@@ -1,4 +1,5 @@
-﻿using Domain.User.Aggregate;
+﻿using DataAccess.User.Mappers;
+using Domain.User.Aggregate;
 using FluentResults;
 using ORM.DbContexts;
 
@@ -10,7 +11,7 @@ public class UserRepository(LexiDbContext context) : IUserRepository
     {
         try
         {
-            return context.Users.First(x => x.UserId == userId);
+            return context.Users.First(x => x.UserId == userId).ToAggregate();
         }
         catch (Exception exception)
         {
@@ -22,7 +23,20 @@ public class UserRepository(LexiDbContext context) : IUserRepository
     {
         try
         {
-            await context.Users.AddAsync(userAggregate);
+            await context.Users.AddAsync(userAggregate.ToDbEntity());
+            return Result.Ok();
+        }
+        catch (Exception exception)
+        {
+            return Result.Fail(exception.Message);
+        }
+    }
+
+    public async Task<Result> UpdateUserAsync(UserAggregate userAggregate)
+    {
+        try
+        {
+            context.Users.Update(userAggregate.ToDbEntity());
             return Result.Ok();
         }
         catch (Exception exception)

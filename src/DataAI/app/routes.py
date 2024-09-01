@@ -23,7 +23,7 @@ def ai():
 def run_grpc():
     grpc_server.serve()
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
     # Run gRPC server in a separate thread
     grpc_thread = Thread(target=run_grpc, daemon=True)
     grpc_thread.start()

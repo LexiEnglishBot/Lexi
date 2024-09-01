@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 from app import routes
 
-app.run(debug=True)
+app.run(debug=True,use_reloader=False)

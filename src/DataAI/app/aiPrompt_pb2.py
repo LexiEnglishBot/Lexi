@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0e\x61iPrompt.proto\"!\n\x0f\x41iPromptRequest\x12\x0e\n\x06prompt\x18\x01 \x01(\t\"\"\n\x10\x41iPromptResponse\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t2?\n\x0f\x41iPromptService\x12,\n\x03\x41sk\x12\x10.AiPromptRequest\x1a\x11.AiPromptResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0e\x61iPrompt.proto\"a\n\x0f\x41iPromptRequest\x12\x0e\n\x06prompt\x18\x01 \x01(\t\x12\x16\n\x0esystem_message\x18\x02 \x01(\t\x12\x17\n\x0fresponse_format\x18\x03 \x01(\t\x12\r\n\x05model\x18\x04 \x01(\t\"\"\n\x10\x41iPromptResponse\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t2u\n\x0f\x41iPromptService\x12,\n\x03\x41sk\x12\x10.AiPromptRequest\x1a\x11.AiPromptResponse\"\x00\x12\x34\n\tAskStream\x12\x10.AiPromptRequest\x1a\x11.AiPromptResponse\"\x00\x30\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +32,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'aiPrompt_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_AIPROMPTREQUEST']._serialized_start=18
-  _globals['_AIPROMPTREQUEST']._serialized_end=51
-  _globals['_AIPROMPTRESPONSE']._serialized_start=53
-  _globals['_AIPROMPTRESPONSE']._serialized_end=87
-  _globals['_AIPROMPTSERVICE']._serialized_start=89
-  _globals['_AIPROMPTSERVICE']._serialized_end=152
+  _globals['_AIPROMPTREQUEST']._serialized_end=115
+  _globals['_AIPROMPTRESPONSE']._serialized_start=117
+  _globals['_AIPROMPTRESPONSE']._serialized_end=151
+  _globals['_AIPROMPTSERVICE']._serialized_start=153
+  _globals['_AIPROMPTSERVICE']._serialized_end=270
 # @@protoc_insertion_point(module_scope)

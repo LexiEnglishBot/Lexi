@@ -11,53 +11,37 @@ class GroqService:
         self.api_url = api_url
         self.api_key = api_key
 
-    def get_answer(self, prompt: str) -> str:
+    def get_answer(self, prompt: str,system_message:str,response_format:str,model:str) -> str:
         """
         Send a prompt to the Groq API and get a response.
 
         :param prompt: The prompt to send to the API.
+        :user_message:the message marked as user message to provide more context at first
+        :system_message:the message marked as system message for better response 
+        :response_format:default is text . can be json_object,
+        :model: distil-whisper-large-v3-en,gemma2-9b-it,gemma-7b-it,llama3-groq-70b-8192-tool-use-preview,llama3-groq-8b-8192-tool-use-preview,llama-3.1-70b-versatile,llama-3.1-8b-instant,llama-guard-3-8b,llama3-70b-8192,llama3-8b-8192,mixtral-8x7b-32768,whisper-large-v3
         :return: The response from the API as a string.
         """
         headers = {
             'Authorization': f'Bearer {self.api_key}',  # Adjust according to API key type
             'Content-Type': 'application/json'
         }
-        #todo:prompt is stupid sometimes
-        system_prompt='''
-           
-    You are required to generate a JSON output that adheres to the following specifications:
-
-    1. **Input**: An English text.
-    2. **Output**: A JSON object with a list of up to 7 advanced or complex idioms or grammatical structures found in the input text.
-    3. **Format**:
-       - Each item in the list should be an object with the following properties:
-         - `"text"`: The idiom or grammatical structure, presented generically.
-         - `"meaning"`: The meaning of the idiom or grammatical structure.
-         - `"sentence"`: A sentence from the input text containing the idiom or grammatical structure. The sentence should be no longer than 30 words.
-    4. **Instructions**:
-       - Your answer text must be parsable to json and nothing else
-       - Do not provide any additional explanations  or descriptions.
-       - The JSON should contain a maximum of 7 entries.
-       - Ensure that `"text"` is formatted generically and independently of its usage in the sentence.
-        '''
-        
-        payload = {
-            
+     
+        payload = {            
             'messages':[
-              {'role':'system','content':system_prompt},
+              {'role':'system','content':system_message},
               {'role':'user','content':prompt}                
             ],            
-            'model':'llama3-8b-8192'
+            'model':model,
+            'response_format':{"type":response_format}          
         }
 
         try:
             response = requests.post(f'{self.api_url}', json=payload, headers=headers)
             response.raise_for_status()  # Raise an HTTPError for bad responses
             response_data = response.json()
-            y = response_data.get('choices', 'No answer found')[0]['message']['content']
-            print(y)            
-            x=json.loads(y)
-            return x
+            y = response_data.get('choices', 'No answer found')[0]['message']['content']                               
+            return y
         except requests.exceptions.RequestException as e:
             # Handle errors such as network issues, invalid responses, etc.
             print(f"An error occurred: {e}")

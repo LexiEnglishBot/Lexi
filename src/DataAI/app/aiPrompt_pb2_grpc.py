@@ -3,8 +3,7 @@
 import grpc
 import warnings
 
-# import aiPrompt_pb2 as aiPrompt__pb2
-from app import aiPrompt_pb2 as aiPrompt__pb2
+import app.aiPrompt_pb2 as aiPrompt__pb2
 
 GRPC_GENERATED_VERSION = '1.66.1'
 GRPC_VERSION = grpc.__version__
@@ -40,6 +39,11 @@ class AiPromptServiceStub(object):
                 request_serializer=aiPrompt__pb2.AiPromptRequest.SerializeToString,
                 response_deserializer=aiPrompt__pb2.AiPromptResponse.FromString,
                 _registered_method=True)
+        self.AskStream = channel.unary_stream(
+                '/AiPromptService/AskStream',
+                request_serializer=aiPrompt__pb2.AiPromptRequest.SerializeToString,
+                response_deserializer=aiPrompt__pb2.AiPromptResponse.FromString,
+                _registered_method=True)
 
 
 class AiPromptServiceServicer(object):
@@ -51,11 +55,22 @@ class AiPromptServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AskStream(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AiPromptServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Ask': grpc.unary_unary_rpc_method_handler(
                     servicer.Ask,
+                    request_deserializer=aiPrompt__pb2.AiPromptRequest.FromString,
+                    response_serializer=aiPrompt__pb2.AiPromptResponse.SerializeToString,
+            ),
+            'AskStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.AskStream,
                     request_deserializer=aiPrompt__pb2.AiPromptRequest.FromString,
                     response_serializer=aiPrompt__pb2.AiPromptResponse.SerializeToString,
             ),
@@ -85,6 +100,33 @@ class AiPromptService(object):
             request,
             target,
             '/AiPromptService/Ask',
+            aiPrompt__pb2.AiPromptRequest.SerializeToString,
+            aiPrompt__pb2.AiPromptResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AskStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/AiPromptService/AskStream',
             aiPrompt__pb2.AiPromptRequest.SerializeToString,
             aiPrompt__pb2.AiPromptResponse.FromString,
             options,

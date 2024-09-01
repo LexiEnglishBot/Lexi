@@ -2,11 +2,15 @@ syntax = "proto3";
 
 service AiPromptService {
   
-  rpc Ask (AiPromptRequest) returns (AiPromptResponse) {}
+  rpc Ask (AiPromptRequest) returns (AiPromptResponse) {};
+  rpc AskStream(AiPromptRequest) returns (stream AiPromptResponse){};
 }
 
 message AiPromptRequest {
   string prompt = 1;
+  string system_message=2;
+  string response_format=3;
+  string model=4 ;
 }
 
 message AiPromptResponse {

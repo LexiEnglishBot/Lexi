@@ -1,4 +1,5 @@
-﻿using Core.Resources.Logging;
+﻿using Core.Resources.Commands;
+using Core.Resources.Logging;
 using Core.Resources.Messages;
 using Core.Resources.ReplyMarkup;
 using DataAccess.User;
@@ -27,10 +28,19 @@ public partial class BotClientService
                 await botClient.SendTextMessageAsync(message.Chat, MessageContents.USER_IS_NOT_IN_CHANNEL, replyMarkup: ReplyMarkups.ReplyMarkupsDictionary[ReplyMarkupContents.USER_IS_NOT_IN_CHANNEL], cancellationToken: cancellationToken);
         }
 
+        if (message.Text is not { } text) return;
+
+
         var user = await InsertOrUpdateUser(message.From.Id, message.From.FirstName, message.From.LastName, message.From.Username, message.From.LanguageCode);
         if (user.IsFailed) return;
         if (user.Value.IsNewUser)
+        {
             await SendWelcomeMessageToUser(user.Value.UserId, cancellationToken);
+        }
+        else if (text.Equals(BotCommands.START, StringComparison.OrdinalIgnoreCase) || text.Equals(ReplyMarkupContents.BACK_KEY, StringComparison.OrdinalIgnoreCase))
+        {
+            await SendHomeMessageToUser(user.Value.UserId, cancellationToken);
+        }
 
         user.Value.IsNewUser = false;
         await _userRepository.SaveChangesAsync();
@@ -58,5 +68,10 @@ public partial class BotClientService
     private async Task SendWelcomeMessageToUser(long userId, CancellationToken cancellationToken)
     {
         await _botClient.SendTextMessageAsync(new ChatId(userId), MessageContents.WELCOME, parseMode: ParseMode.Html, cancellationToken: cancellationToken);
+    }
+
+    private async Task SendHomeMessageToUser(long userId, CancellationToken cancellationToken)
+    {
+        await _botClient.SendTextMessageAsync(new ChatId(userId), MessageContents.HOME, parseMode: ParseMode.Html, cancellationToken: cancellationToken);
     }
 }

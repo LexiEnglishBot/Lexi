@@ -22,6 +22,7 @@ class GroqService:
             'Authorization': f'Bearer {self.api_key}',  # Adjust according to API key type
             'Content-Type': 'application/json'
         }
+        #todo:prompt is stupid sometimes
         system_prompt='''
            
     You are required to generate a JSON output that adheres to the following specifications:
@@ -34,8 +35,8 @@ class GroqService:
          - `"meaning"`: The meaning of the idiom or grammatical structure.
          - `"sentence"`: A sentence from the input text containing the idiom or grammatical structure. The sentence should be no longer than 30 words.
     4. **Instructions**:
-       - Your answer text must be parsable to json
-       - Do not provide any additional explanations or descriptions.
+       - Your answer text must be parsable to json and nothing else
+       - Do not provide any additional explanations  or descriptions.
        - The JSON should contain a maximum of 7 entries.
        - Ensure that `"text"` is formatted generically and independently of its usage in the sentence.
         '''

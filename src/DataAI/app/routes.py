@@ -25,5 +25,5 @@ def run_grpc():
 
 #if __name__ == '__main__':
     # Run gRPC server in a separate thread
-    grpc_thread = Thread(target=run_grpc, daemon=True)
-    grpc_thread.start()
+grpc_thread = Thread(target=run_grpc, daemon=None)
+grpc_thread.start()

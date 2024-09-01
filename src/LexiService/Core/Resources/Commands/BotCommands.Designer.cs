@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Core.Resources.Messages {
+namespace Core.Resources.Commands {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Core.Resources.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MessageContents {
+    public class BotCommands {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MessageContents() {
+        internal BotCommands() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Core.Resources.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Core.Resources.Messages.MessageContents", typeof(MessageContents).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Core.Resources.Commands.BotCommands", typeof(BotCommands).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,43 +61,11 @@ namespace Core.Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hi there! 👋 I&apos;m Lexi, your friendly English learning assistant. I&apos;m here to help you improve your English skills. Just send me a message and we can get started.
-        ///Let&apos;s make learning English fun and easy together! 📚.
+        ///   Looks up a localized string similar to /start.
         /// </summary>
-        public static string HOME {
+        public static string START {
             get {
-                return ResourceManager.GetString("HOME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Oops! It seems you&apos;re not a member of our channel yet. To access all the features and resources, please join our channel first.
-        ///
-        ///
-        ///@LexiEnglish
-        ///Once you&apos;ve joined, you&apos;ll be able to chat with me and get started on your English learning journey!.
-        /// </summary>
-        public static string USER_IS_NOT_IN_CHANNEL {
-            get {
-                return ResourceManager.GetString("USER_IS_NOT_IN_CHANNEL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hi there! 👋 I&apos;m Lexi, your friendly English learning assistant. I&apos;m here to help you improve your English skills. Just send me a message and we can get started.
-        ///
-        ///If you need help with:
-        ///Grammar
-        ///Vocabulary
-        ///Pronunciation
-        ///Writing
-        ///Speaking practice
-        ///
-        ///Let&apos;s make learning English fun and easy together! 📚.
-        /// </summary>
-        public static string WELCOME {
-            get {
-                return ResourceManager.GetString("WELCOME", resourceCulture);
+                return ResourceManager.GetString("START", resourceCulture);
             }
         }
     }

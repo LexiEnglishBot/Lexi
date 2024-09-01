@@ -117,27 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HOME" xml:space="preserve">
-    <value>Hi there! 👋 I'm Lexi, your friendly English learning assistant. I'm here to help you improve your English skills. Just send me a message and we can get started.
-Let's make learning English fun and easy together! 📚</value>
-  </data>
-  <data name="USER_IS_NOT_IN_CHANNEL" xml:space="preserve">
-    <value>Oops! It seems you're not a member of our channel yet. To access all the features and resources, please join our channel first.
-
-
-@LexiEnglish
-Once you've joined, you'll be able to chat with me and get started on your English learning journey!</value>
-  </data>
-  <data name="WELCOME" xml:space="preserve">
-    <value>Hi there! 👋 I'm Lexi, your friendly English learning assistant. I'm here to help you improve your English skills. Just send me a message and we can get started.
-
-If you need help with:
-Grammar
-Vocabulary
-Pronunciation
-Writing
-Speaking practice
-
-Let's make learning English fun and easy together! 📚</value>
+  <data name="START" xml:space="preserve">
+    <value>/start</value>
   </data>
 </root>

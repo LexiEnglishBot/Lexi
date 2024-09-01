@@ -44,6 +44,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\Commands\BotCommands.Designer.cs">
+      <DependentUpon>BotCommands.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Resources\Exceptions\ExceptionMessages.Designer.cs">
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -72,6 +77,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Commands\BotCommands.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>BotCommands.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Exceptions\ExceptionMessages.resx">
       <SubType>Designer</SubType>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>

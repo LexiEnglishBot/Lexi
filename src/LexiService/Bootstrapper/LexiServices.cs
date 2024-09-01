@@ -13,6 +13,6 @@ public static class LexiServices
 
     public static IServiceCollection RegisterRepositories(this IServiceCollection services)
     {
-        return services.AddScoped<IUserRepository, UserRepository>();
+        return services.AddTransient<IUserRepository, UserRepository>();
     }
 }

@@ -16,6 +16,6 @@ public static class DbContextServices
         {
             options.UseNpgsql(dbDataSource).UseCamelCaseNamingConvention();
             options.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
-        });
+        }, ServiceLifetime.Transient);
     }
 }

@@ -15,7 +15,7 @@ public partial class BotClientService : BackgroundService
     private readonly IServiceScope _serviceScope;
     private readonly ILogger<BotClientService> _logger;
     private readonly Dictionary<string, string> _botConfigs;
-    private readonly IUserRepository _userRepository;
+    private IUserRepository _userRepository;
 
     public BotClientService(IConfiguration configuration, ILogger<BotClientService> logger, IServiceScopeFactory serviceScopeFactory)
     {

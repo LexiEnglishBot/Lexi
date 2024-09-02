@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace ApplicationService.Services.BotClient;
 
@@ -25,7 +26,10 @@ public partial class BotClientService
         {
             var chatMember = await botClient.GetChatMemberAsync(new ChatId(_botConfigs["Channel"]), message.From.Id, cancellationToken);
             if (chatMember.Status is ChatMemberStatus.Left or ChatMemberStatus.Kicked or ChatMemberStatus.Restricted)
+            {
                 await botClient.SendTextMessageAsync(message.Chat, MessageContents.USER_IS_NOT_IN_CHANNEL, replyMarkup: ReplyMarkups.ReplyMarkupsDictionary[ReplyMarkupContents.USER_IS_NOT_IN_CHANNEL], cancellationToken: cancellationToken);
+                return;
+            }
         }
 
         if (message.Text is not { } text) return;
@@ -67,11 +71,21 @@ public partial class BotClientService
 
     private async Task SendWelcomeMessageToUser(long userId, CancellationToken cancellationToken)
     {
-        await _botClient.SendTextMessageAsync(new ChatId(userId), MessageContents.WELCOME, parseMode: ParseMode.Html, cancellationToken: cancellationToken);
+        await _botClient.SendTextMessageAsync(new ChatId(userId), MessageContents.WELCOME,
+            replyMarkup: new ReplyKeyboardMarkup(new KeyboardButton("BACK_KEY"))
+            {
+                ResizeKeyboard = true
+            }
+            , parseMode: ParseMode.Html, cancellationToken: cancellationToken);
     }
 
     private async Task SendHomeMessageToUser(long userId, CancellationToken cancellationToken)
     {
-        await _botClient.SendTextMessageAsync(new ChatId(userId), MessageContents.HOME, parseMode: ParseMode.Html, cancellationToken: cancellationToken);
+        await _botClient.SendTextMessageAsync(new ChatId(userId), MessageContents.HOME,
+            replyMarkup: new ReplyKeyboardMarkup(new KeyboardButton("BACK_KEY"))
+            {
+                ResizeKeyboard = true
+            }
+            , parseMode: ParseMode.Html, cancellationToken: cancellationToken);
     }
 }

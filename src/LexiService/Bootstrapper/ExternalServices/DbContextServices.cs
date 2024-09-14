@@ -10,12 +10,14 @@ public static class DbContextServices
 {
     public static void RegisterDbContextServices(this IServiceCollection services, IConfiguration configuration)
     {
-        var dbDataSource = new NpgsqlDataSourceBuilder(configuration.GetConnectionString("PostgresConnectionString")).Build();
+        var dbContextConnectionString = configuration.GetConnectionString("PostgresConnectionString")!;
+        var dbDataSource = new NpgsqlDataSourceBuilder(dbContextConnectionString).Build();
 
         services.AddDbContext<LexiDbContext>(options =>
         {
             options.UseNpgsql(dbDataSource).UseCamelCaseNamingConvention();
             options.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
+
         }, ServiceLifetime.Transient);
     }
 }

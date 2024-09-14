@@ -19,6 +19,19 @@ public class UserRepository(LexiDbContext context) : IUserRepository
         }
     }
 
+    public bool TryGetUserAggregate(long userId, out UserAggregate userAggregate)
+    {
+        var user = context.Users.FirstOrDefault(x => x.UserId == userId);
+        if (user == null)
+        {
+            userAggregate = null;
+            return false;
+        }
+
+        userAggregate = user.ToAggregate();
+        return true;
+    }
+
     public async Task<Result> AddUserAsync(UserAggregate userAggregate)
     {
         try
@@ -45,11 +58,11 @@ public class UserRepository(LexiDbContext context) : IUserRepository
         }
     }
 
-    public async Task<Result> SaveChangesAsync()
+    public async Task<Result> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         try
         {
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync(cancellationToken);
             return Result.Ok();
         }
         catch (Exception exception)

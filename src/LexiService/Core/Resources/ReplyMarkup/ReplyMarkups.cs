@@ -1,11 +1,10 @@
-﻿using System.Resources;
-using Telegram.Bot.Types.ReplyMarkups;
+﻿using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Core.Resources.ReplyMarkup;
 
 public static class ReplyMarkups
 {
-    public static Dictionary<string, IReplyMarkup> ReplyMarkupsDictionary = new Dictionary<string, IReplyMarkup>()
+    public static Dictionary<string, IReplyMarkup> ReplyMarkupsDictionary = new()
     {
         {
             nameof(ReplyMarkupContents.BACK_KEY)

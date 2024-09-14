@@ -9,5 +9,6 @@ public interface IUserRepository
     Task<Result> AddUserAsync(UserAggregate userAggregate);
     Task<Result> UpdateUserAsync(UserAggregate userAggregate);
     Task<Result<bool>> IsUserExistsAsync(long userId);
-    Task<Result> SaveChangesAsync();
+    Task<Result> SaveChangesAsync(CancellationToken cancellationToken = default);
+    bool TryGetUserAggregate(long userId, out UserAggregate userAggregate);
 }

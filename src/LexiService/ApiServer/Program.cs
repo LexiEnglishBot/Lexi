@@ -17,7 +17,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.RegisterTelegramServices()
-                .RegisterRepositories();
+                .RegisterConfigs(configuration)
+                .RegisterRepositories()
+                .RegisterMediatorServices();
 
 builder.Services.RegisterDbContextServices(configuration);
 

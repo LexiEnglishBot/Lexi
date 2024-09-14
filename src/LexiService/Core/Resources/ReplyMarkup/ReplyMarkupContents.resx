@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BACK_KEY" xml:space="preserve">
-    <value>BACK_KEY</value>
+    <value>back</value>
   </data>
   <data name="USER_IS_NOT_IN_CHANNEL" xml:space="preserve">
     <value>USER_IS_NOT_IN_CHANNEL</value>

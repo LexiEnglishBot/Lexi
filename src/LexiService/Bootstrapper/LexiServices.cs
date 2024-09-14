@@ -1,6 +1,6 @@
-﻿using ApplicationService.Services.BotClient;
-using DataAccess.User;
+﻿using DataAccess.User;
 using Microsoft.Extensions.DependencyInjection;
+using BotClientService = ApplicationService.BotClient.BotClientService;
 
 namespace Bootstrapper;
 

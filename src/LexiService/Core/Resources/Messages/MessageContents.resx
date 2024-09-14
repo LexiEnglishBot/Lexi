@@ -121,6 +121,9 @@
     <value>Hi there! 👋 I'm Lexi, your friendly English learning assistant. I'm here to help you improve your English skills. Just send me a message and we can get started.
 Let's make learning English fun and easy together! 📚</value>
   </data>
+  <data name="SELECT_GAME" xml:space="preserve">
+    <value>Please select one of these games:</value>
+  </data>
   <data name="USER_IS_NOT_IN_CHANNEL" xml:space="preserve">
     <value>Oops! It seems you're not a member of our channel yet. To access all the features and resources, please join our channel first.
 

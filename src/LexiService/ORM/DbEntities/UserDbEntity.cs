@@ -8,4 +8,6 @@ public class UserDbEntity
     public string? LastName { get; set; }
     public string? Username { get; set; }
     public string? LanguageCode { get; set; }
+    public string? Step { get; set; } = string.Empty;
+    public DateTime RegisterDateTime { get; set; }
 }

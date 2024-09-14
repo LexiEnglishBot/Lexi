@@ -14,7 +14,8 @@ public static class UserMapper
             entity.LastName,
             entity.Username,
             entity.LanguageCode,
-            false
+            entity.Step,
+            entity.RegisterDateTime
             );
     }
 
@@ -28,6 +29,8 @@ public static class UserMapper
             LastName = userAggregate.LastName,
             Username = userAggregate.Username,
             LanguageCode = userAggregate.LanguageCode,
+            Step = userAggregate.Step,
+            RegisterDateTime = userAggregate.RegisterDateTime
         };
     }
 }

@@ -71,6 +71,15 @@ namespace Core.Resources.Messages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select one of these games:.
+        /// </summary>
+        public static string SELECT_GAME {
+            get {
+                return ResourceManager.GetString("SELECT_GAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Oops! It seems you&apos;re not a member of our channel yet. To access all the features and resources, please join our channel first.
         ///
         ///

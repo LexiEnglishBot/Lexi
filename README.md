@@ -16,18 +16,6 @@ Lexi is a cutting-edge English language learning bot designed to provide tailore
 - Databases: PostgreSQL, MongoDB, and Elastic databases provide efficient data storage and retrieval, supporting various learning scenarios.
 - Programming Languages: C# and Python are used to develop the bot's logic and functionality.
 
-
-## API Reference
-
-- #### HealthCheck
-
-```http
-  GET /Lexi/api/{version}/SayHi
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `version` | `int` | **Required**. Your API Reference Version |
 ## Deployment
 
 To deploy this project run
